@@ -31,7 +31,7 @@ jobs:
 
     - name: Delete cache
       run: |
-        gh api --method DELTE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches
+        gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
