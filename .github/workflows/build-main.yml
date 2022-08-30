@@ -21,10 +21,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-test
 
+    - name: Make test file
+      run: |
+        echo "${{ github.run_id }}" >> test.txt
+
     - name: Print test file
       run: |
         cat test.txt
 
-    - name: Make test file
-      run: |
-        echo "${{ github.run_id }}" >> test.txt
