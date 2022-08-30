@@ -18,8 +18,6 @@ jobs:
       with:
         path: test.txt
         key: ${{ runner.os }}-test
-        restore-keys: |
-          ${{ runner.os }}-test
 
     - name: Make test file
       run: |
