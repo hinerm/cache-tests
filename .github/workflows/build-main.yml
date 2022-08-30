@@ -30,7 +30,7 @@ jobs:
     - name: Delete cache
       if: steps.cache-test.outputs.cache-hit == 'true'
       run: |
-        gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches/ -f Key='${{ runner.os }}-test'
+        gh api --method DELETE -H "Accept: application/vnd.github+json" -f Key='${{ runner.os }}-test' /repos/hinerm/cache-tests/actions/caches/
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
