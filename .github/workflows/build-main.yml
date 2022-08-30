@@ -27,6 +27,12 @@ jobs:
       run: |
         cat test.txt
 
+    - name: List cache
+      run: |
+        gh api -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
     - name: Delete cache
       if: steps.cache-test.outputs.cache-hit == 'true'
       run: |
