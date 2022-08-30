@@ -40,3 +40,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
+    - name: Nuke cache
+      run: |
+        gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches?key=${{ runner.os }}-test-2958554380
+        gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches?key=${{ runner.os }}-test-2958562536
+        gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches?key=${{ runner.os }}-test-2958568375
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
