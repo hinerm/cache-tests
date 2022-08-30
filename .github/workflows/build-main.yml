@@ -29,7 +29,7 @@ jobs:
 
     - name: List cache
       run: |
-        gh api -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches
+        gh api -H "Accept: application/vnd.github+json" -f key=${{ runner.os }}-test /repos/hinerm/cache-tests/actions/caches
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
