@@ -26,7 +26,6 @@ jobs:
     - name: Print test file
       run: |
         cat test.txt
-        echo "update-cache=false" >> $GITHUB_ENV
 
     - name: List cache
       run: |
