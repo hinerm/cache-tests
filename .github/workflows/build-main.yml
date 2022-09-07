@@ -26,7 +26,7 @@ jobs:
     - name: Print test file
       run: |
         cat test.txt
-        echo "update-cache=false" >> $GITHUB_ENV
+        echo "update-cache=true" >> $GITHUB_ENV
 
     - name: List cache
       run: |
@@ -36,14 +36,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Delete cache
-      if: ${{ env.update-cache }} == 'true'
+      if: env.update-cache == 'true'
       run: |
         gh api --method DELETE -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches?key=${{ runner.os }}-test
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Update cache post-delete
-      if: ${{ env.update-cache }} == 'true'
+      if: env.update-cache == 'true'
       id: update-cache
       uses: actions/cache@v3
       with:
