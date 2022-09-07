@@ -30,6 +30,7 @@ jobs:
 
     - name: List cache
       run: |
+        echo "update-cache: ${{ env.update-cache }}"
         gh api -H "Accept: application/vnd.github+json" /repos/hinerm/cache-tests/actions/caches?key=${{ runner.os }}-test
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
